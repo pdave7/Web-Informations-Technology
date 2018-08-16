@@ -1,0 +1,45 @@
+<% include partials/header-upper %>
+<title>Sign Up</title>
+<% include partials/header-lower %>
+<% include partials/navbar %>
+<div class="grid_container">
+  <section class="checkout_content bg-light">
+    <div class="checkout-header">
+  <h1>Checkout</h1>
+  </div>
+  <div class="checkout-total">
+  <h4>Your Total: $<%= parseFloat(total).toFixed(2) %></h4>
+  </div>
+  <div class="checkout-main">
+    <div id="card-errors" class="alert alert-danger card-errors">
+
+    </div>
+    <% if(!noError) {%>
+      <%= error %>
+    <% } %>
+    <form action="/browse/checkout" method="POST" id="checkout-form">
+      <div class="form-group fg3">
+        <label for="card-name">Card Holder Name</label>
+        <input id="card-name" type="text" class=form-control required name="card_holder_name">
+      </div>
+      <div class="form-group">
+      <label for="card-element">
+      Credit or debit card
+      </label>
+      <div id="card-element" class="form-control">
+      <!-- A Stripe Element will be inserted here. -->
+      </div>
+      </div>
+      <div class="submit fg8">
+        <button class="btn_large input_widener">BUY NOW</button>
+      </div>
+    </form>
+    </div>
+    </div>
+</section>
+</div>
+
+
+<% include partials/footer-upper %>
+<script type="text/javascript" src="/js/checkout.js "></script>
+<% include partials/footer-lower %>

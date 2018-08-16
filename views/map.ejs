@@ -1,0 +1,100 @@
+<html>
+
+<head>
+  <title> Donation Map </title>
+
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <script>
+    zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+  </script>
+  <style>
+    .zc-ref {
+      display: none;
+    }
+  </style>
+<% include partials/navbar %>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
+  </head>
+
+<body>
+
+  <div> <h1 class="prv_orders cursive bold"> Donation Map</h1></div>
+  <a href="/user/back" class="btn_large">Back to profile</a>
+  <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
+  <script>
+    zingchart.loadModules('maps,maps-ind,maps-world-countries');
+    zingchart.render({
+      "id": 'myChart',
+      "width": '100%',
+      "height": '100%',
+      "data": {
+        "shapes": [ {
+          "type": "zingchart.maps",
+          "options": {
+            "name": 'world.countries',
+            "zooming": true, // turn of zooming. Doesn't work with bounding box
+            "panning": true, // turn of zooming. Doesn't work with bounding box
+            "style": {
+              "controls": {
+                "visible": true // turn of zooming. Doesn't work with bounding box
+              },
+              "border-width": 2,
+              "border-color": '#000',
+              "label": { // text displaying. Like valueBox
+                "visible": false,
+                "font-size": 10
+              },
+              "hover-state": {
+                "alpha": ".28"
+              },
+              "tooltip": {
+                "font-size": 18,
+                "border-width": 2,
+                "border-color": "#000"
+              },
+              "items": {
+
+                  <% for(var i=0; i<user.donation_destinations.length; i++) { %>
+                    <% if (i === 0) { %>
+                    <%= user.donation_destinations[i] %>: {
+                  "label": {
+                    "visible": true
+                  },
+                  "tooltip": {
+                    "background-color": "#DA70D6"
+                  },
+                  "background-color": "#DA70D6"
+                }
+                  <% } else {%>
+                    ,<%= user.donation_destinations[i] %>: {
+                  "label": {
+                    "visible": true
+                  },
+                  "tooltip": {
+                    "background-color": "#DA70D6"
+                  },
+                  "background-color": "#DA70D6"
+                }
+
+
+                    <% } %>
+
+                  <% } %>
+              }
+            }
+            }
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+<% include partials/footer-upper %>
+<% include partials/footer-lower %>

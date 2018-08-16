@@ -1,0 +1,19 @@
+<% include partials/header-upper %>
+<title>New Product</title>
+<% include partials/header-lower %>
+<% include partials/navbar %>
+<form action="/new_product" method="post">
+  <input type="text" name="name" placeholder="name">
+  <br>
+  <input type="text" name="price" placeholder="price">
+  <br>
+  <input type="text" name="description" placeholder="desc">
+  <br>
+  <input type="text" name="brand" placeholder="brand">
+  <br>
+  <input type="text" name="image" placeholder="image">
+  <button>Submit</button>
+</form>
+
+<% include partials/footer-upper %>
+<% include partials/footer-lower %>

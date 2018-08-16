@@ -1,0 +1,29 @@
+<% include partials/header-upper %>
+<title>Home</title>
+<% include partials/header-lower %>
+<div class="home_container">
+<% include partials/navbar %>
+<div class="body_content">
+    <div class="parallax-base">
+      <h1 id="home_heading" class="cursive bold parallax-container">Impower.</h1>
+    </div>
+  <% success %>
+  <h3 class="lato" id="home_desc">A campaign empowering Women.</h3>
+  <!-- <button type="button" name="button" class="">About Us</button>
+  <button type="button" name="button" class="">Buyer</button> -->
+  <a href="/about" class="about_anchor about btn_large">
+    <div class="anchor_div">
+      ABOUT US
+    </div>
+  </a>
+  <a href="/browse" class="buy_anchor buyer_btn btn_large">
+    <div class="anchor_div">
+      DONATE
+    </div>
+  </a>
+
+</div>
+</div>
+<% include partials/footer-upper %>
+<script type="text/javascript" src="/js/parallax.js"></script>
+<% include partials/footer-lower %>

@@ -1,0 +1,48 @@
+<% include partials/header-upper %>
+<title>Login</title>
+<% include partials/header-lower %>
+
+<% include partials/navbar %>
+<div class="grid_container">
+<section class="login_content">
+  <div class="signin_options">
+    <div class="login_link">
+      <a href="#">Already a member?</a>
+    </div>
+    <div class="sign_up_link">
+      <a href="/user/signup">New to Impower?</a>
+    </div>
+  </div>
+  <h2 class="signin_title">Sign In</h2>
+
+<div class="login_form">
+  <% if (messages != 0) { %>
+    <div class="alert alert-danger">
+      <% for(var i = 0; i < messages.length; i++) { %>
+        <p class="reset"><%= messages[i] %></p>
+        <div class="dropdown-divider"></div>
+      <% } %>
+    </div>
+  <% } %>
+<form action="/user/login" method="POST">
+<div class="form-group">
+<label for="LoginEmail">Email address</label>
+<input name="email" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+</div>
+<div class="form-group">
+<label for="LoginPassword">Password</label>
+<input name="password" type="password" class="form-control" placeholder="Password">
+</div>
+<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+<div class="submit">
+<button class="btn_large input_widener">SIGN IN</button>
+</div>
+<div class="forgotten">
+<a href="#">Forgotten Password?</a>
+</div>
+</form>
+</div>
+</section>
+</div>
+<% include partials/footer-upper %>
+<% include partials/footer-lower %>

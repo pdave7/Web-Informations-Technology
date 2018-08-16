@@ -1,0 +1,83 @@
+<% include partials/header-upper %>
+<title>Cart</title>
+<% include partials/header-lower %>
+    <% include partials/navbar %>
+<% if(!products) { %>
+  <div class="cart_bg">
+  <div class="cart_no_items_container">
+
+
+    <h1 class="prv_orders bold cursive">No Items in Cart</h1>
+    <h3 class="centre_this lato">Let's put some items in your cart!</h3>
+    <div class="centre_this">
+      <a href="/browse" class="btn_large">
+          Donate Now!
+      </a>
+    </div>
+</div>
+  </div>
+<% } else { %>
+  <div class="cart-wrap">
+    <div class="cart-header">
+      <h1>Shopping Cart</h1>
+    </div>
+    <div class="cart-item-header">
+      <div class="header-name">PRODUCT NAME</div>
+      <div class="header-price">PRICE</div>
+      <div class="header-qty">QTY</div>
+      <div class="header-subtotal">SUBTOTAL</div>
+    </div>
+    <div class="cart-main">
+      <ul>
+        <% products.forEach(function(product) { %>
+          <li id="<%= product.item.id %>">
+            <div class="cart-item">
+              <div class="cart-info">
+                <div class="cart-img">
+                  <a class="cart-img-remove" href="/cart/remove/<%= product.item.name %>"><i class="fas fa-ban"></i></i></a>
+                  <a href="/browse/<%= product.item.id %>" class="cart-img-display">
+                    <img src="/<%= product.item.image %>">
+                  </a>
+                </div>
+                <div class="cart-item-details">
+                  <div class="cart-item-name">
+                    <strong><%= product.item.name %></strong>
+                  </div>
+                  <div class="cart-item-desc">
+                    <%= product.item.description %>
+                  </div>
+                  <div class="cart-deliv">
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="cart-item-price">$<%= parseFloat(product.item.price).toFixed(2) %></div>
+              <div class="cart-item-qty">
+                <div class="cart-qty-display"><%=product.qty%></div>
+                <div class="cart-qty-plus"><a href="/cart/increase/<%=product.item.name%>"><i class="far fa-plus-square"></i></a></div>
+                <div class="cart-qty-minus"><a href="/cart/reduce/<%=product.item.name%>"><i class="far fa-minus-square"></i></a></div>
+              </div>
+              <div class="cart-item-subtotal">$<%= parseFloat(product.qty * product.item.price).toFixed(2) %></div>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+    <div class="cart-subtotals">
+      <div class="cart-subtotals-display">
+        Total Price: <strong>$<%= parseFloat(totalPrice).toFixed(2) %></strong>
+      </div>
+      <div class="checkout">
+        <a href="/browse/checkout" class="btn_large">Checkout</a>
+      </div>
+    </div>
+  </div>
+<% } %>
+
+
+
+<% include partials/footer-upper %>
+<script type="text/javascript" src="/js/cart_front.js">
+
+</script>
+<% include partials/footer-lower %>

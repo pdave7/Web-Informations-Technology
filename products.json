@@ -1,0 +1,51 @@
+[
+  {
+      "id":"Contraceptor3000",
+      "name": "Contraceptor3000",
+      "price": "5.50",
+      "description": "The Contraceptor3000 is an average contraceptive",
+      "brand": "Australian Pharmaceutical Industries",
+      "image": "img/medicine2.jpg"
+
+},
+{
+    "id":"Contraceptor3001",
+    "name": "Contraceptor3001",
+    "price": "8.00",
+    "description": "The Contraceptor3001 is an average contraceptive",
+    "brand": "Australian Pharmaceutical Industries",
+    "image": "img/medicine4.jpg"
+},
+{
+    "id":"Contraceptor3002",
+    "name": "Contraceptor3002",
+    "price": "15.00",
+    "description": "The Contraceptor3002 was a good contraceptive in 2001",
+    "brand": "Roche Products",
+    "image": "img/medicine5.jpg"
+},
+{
+    "id":"Contraceptor4001",
+    "name": "Contraceptor4001",
+    "price": "300.00",
+    "description": "The Contraceptor4001 is state of the art and will stop ALL BABIES",
+    "brand": "Platinum Pharmaceutical",
+    "image": "img/medicine6.jpg"
+},
+{
+    "id":"Contraceptor4001-2",
+    "name": "Contraceptor4001 MEGA BUNDLE",
+    "price": "600.00",
+    "description": "'The Contraceptor4001 MEGA BUNDLE is the best contraceptive package you will ever find.' - Stephen Hawking",
+    "brand": "Platinum Pharmaceutical",
+    "image": "img/medicine6.jpg"
+},
+{
+    "id":"Contraceptor4001-3",
+    "name": "Contraceptor4001 SUPER MEGA BUNDLE",
+    "price": "900000.00",
+    "description": "'The Contraceptor4001 SUPER MEGA BUNDLE is the best contraceptive package you will ever find.' - Stephen Hawking",
+    "brand": "Platinum Pharmaceutical",
+    "image": "img/medicine6.jpg"
+}
+]

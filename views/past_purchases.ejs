@@ -1,0 +1,39 @@
+<% include partials/header-upper %>
+<title>Profile</title>
+<% include partials/header-lower %>
+<% include partials/navbar %>
+<div class="container">
+  <a href="/user/back" class="btn_large">Back</a>
+<% if (orders) { %>
+<h1 class="prv_orders cursive bold">Previous Orders: </h1>
+<% for (var i = orders.length - 1; i >= 0; i--) { %>
+
+  <section class="jumbotron">
+    <h4><%= orders[i].date %></h4>
+    <hr class="my-4">
+    <ul class="profile-order-list">
+      <% orders[i].items.forEach(function(item) { %>
+        <li class="profile-order">
+        <div class="lato">
+        <strong>Product</strong>: <%= item.item.name %>
+        </div>
+        <div class="lato">
+        <strong>Brand</strong>: <%= item.item.brand %>
+        </div>
+        <div class="lato">
+        <strong>Quantity</strong>: <%= item.qty %>
+        </div>
+        <div class="lato">
+        <strong>Price</strong>: $<%= parseFloat(item.price).toFixed(2) %>
+        </div>
+        <hr class="my-4">
+        </li>
+      <% }); %>
+    </ul>
+    <h3><strong>Total Price: $<%=parseFloat(orders[i].cart.totalPrice).toFixed(2)%></strong></h3>
+  </section>
+  <% } %>
+<% } %>
+</div>
+<% include partials/footer-upper %>
+<% include partials/footer-lower %>

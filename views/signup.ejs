@@ -1,0 +1,55 @@
+<% include partials/header-upper %>
+<title>Sign Up</title>
+<% include partials/header-lower %>
+<% include partials/navbar %>
+<div class="grid_container">
+  <section class="login_content">
+    <div class="signin_options">
+      <div class="first_opt">
+      <div class="login_link">
+        <a href="/user/login">Already a member?</a>
+      </div>
+      </div>
+      <div class="second_opt">
+      <div class="sign_up_link">
+        <a href="#">New to Impower?</a>
+      </div>
+    </div>
+    </div>
+    <h2 class="signin_title">Sign Up Using Your Email</h2>
+    <div class='register'>
+      <% if (messages != 0) { %>
+        <div class="alert alert-danger">
+          <% for(var i = 0; i < messages.length; i++) { %>
+            <p class="reset"><%= messages[i] %></p>
+            <div class="dropdown-divider"></div>
+          <% } %>
+        </div>
+      <% } %>
+    <form action="/user/signup" method="POST">
+      <div class="form-group">
+        <label for="SignUpEmail">Email address</label>
+        <input name="email" type="text" class="form-control" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <label for="SignUpfName">First Name:</label>
+        <input name="firstName" type="text" class=form-control aria-describedby="fNameHelp" placeholder="First Name">
+      </div>
+      <div class="form-group">
+        <label for="SignUplName">Last Name:</label>
+        <input name="lastName" type="text" class=form-control aria-describedby="lNameHelp" placeholder="Last Name">
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input name="password" type="password" class=form-control aria-describedby="passwordHelp" placeholder="Password">
+      </div>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <div class="submit">
+        <button class="btn_large input_widener">SIGN UP</button>
+      </div>
+    </form>
+    </div>
+  </section>
+  </div>
+<% include partials/footer-upper %>
+<% include partials/footer-lower %>

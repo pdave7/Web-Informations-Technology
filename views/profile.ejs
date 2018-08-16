@@ -1,0 +1,16 @@
+<% include partials/header-upper %>
+<title>Profile</title>
+<% include partials/header-lower %>
+<% include partials/navbar %>
+<div class="cart_bg">
+  <h1 class="profile_title cursive bold"><%=user.firstName + " " + user.lastName%></h1>
+  <div class="btn_container">
+    <a href="/user/profile/purchases" class="btn_large">Past Purchases</a>
+    <a href="/user/map" class="btn_large">Donation Map</a>
+  </div>
+</div>
+
+
+<% include partials/footer-upper %>
+
+<% include partials/footer-lower %>
